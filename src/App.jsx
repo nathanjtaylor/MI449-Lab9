@@ -1,10 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [value, setValue] = useState(0);
+  const [money, setMoney] = useState(10000);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setValue(Number((Math.random() * 20000 - 10500).toFixed(2)));
+    }, 100); // Updates every 100ms
+
+    return () => clearInterval(interval); // Cleanup function to prevent memory leaks
+  }, []);
 
   return (
     <>
@@ -16,22 +25,14 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>GET RICH QUICK!!!</h1>
       <div className="card">
-        <div className="count">{count}</div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          Increase Count
+        Value: <div className="count">{value}</div>
+        Your Money: <div className="count">{money} $</div>
+        <button onClick={() => setMoney(money => Number((money + value).toFixed(2)))}>
+          Buy
         </button>
-        <button onClick={() => setCount((count) => count - 1)}>
-          Decrease Count
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
