@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <img className="image" src="src/assets/bitcoin.png" alt="bitcoin"/>
+      <img className="image" src="/src/assets/bitcoin.png" alt="bitcoin"/>
       <h1>GET RICH QUICK</h1>
       <p>time your trading to gain money!!!</p>
       <div className="card">
