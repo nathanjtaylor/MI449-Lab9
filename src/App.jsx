@@ -9,7 +9,12 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setValue(Number((Math.random() * 20000 - 10500).toFixed(2)));
+      if (Math.random() > 0.95){
+        setValue(1000000)
+      }
+      else {
+        setValue(Number((Math.random() * 20000 - 10500).toFixed(2)));
+      }
     }, 100); // Updates every 100ms
 
     return () => clearInterval(interval); // Cleanup function to prevent memory leaks
@@ -25,12 +30,13 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>GET RICH QUICK!!!</h1>
+      <h1>GET RICH QUICK</h1>
+      <p>time your trading to gain money!!!</p>
       <div className="card">
         Value: <div className="count">{value}</div>
         Your Money: <div className="count">{money} $</div>
         <button onClick={() => setMoney(money => Number((money + value).toFixed(2)))}>
-          Buy
+          Trade
         </button>
       </div>
     </>
