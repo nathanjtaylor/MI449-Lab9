@@ -50,3 +50,15 @@
 .read-the-docs {
   color: #888;
 }
+
+.bankrupt {
+  background-color: #d10000;
+}
+
+.not-bankrupt {
+  background-color: #f9f9f9;
+}
+
+.image {
+  width: 200px;
+}
